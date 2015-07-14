@@ -1,0 +1,8 @@
+---
+- name: Upgrade all packages on system
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+  - name: Debian/ubuntu system updates
+    apt: upgrade=dist update_cache=yes

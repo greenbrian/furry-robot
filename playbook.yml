@@ -1,0 +1,23 @@
+---
+- name: Setup our application environment
+  hosts: all
+  become: yes
+  become_user: root
+  remote_user: vagrant
+  vars:
+    db_name: bgapp
+    db_user: bg
+    db_password: supersecretpassword
+  roles:
+  - { role: base, tags: base }
+  - { role: nginx, tags: nginx }
+  - { role: uwsgi, tags: uwsgi }
+#  - { role: django }
+  - { role: postgresql, tags: postgresql }
+
+
+#      - role: foo
+#        param1: '{{ item }}'
+#        param2: '{{ item + "/" + item }}'
+#        with_items: ['a','b','c']
+#        when: ansible_os_family == 'RedHat'
