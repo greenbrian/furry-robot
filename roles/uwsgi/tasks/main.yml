@@ -14,3 +14,16 @@
 - name: install uWSGI via pip
   sudo: True
   pip: name=uwsgi state=latest
+
+- name: Copy the uWSGI upstart script
+  copy: src=uwsgi.conf
+        dest=/etc/init/
+
+- name: Create uWSGI directory
+  file: path=/etc/uwsgi/sites
+        state=directory
+
+- name: Create uWSGI config file
+  template: src=furry-robot.ini.j2
+            dest=/etc/uwsgi/sites/furry-robot.ini
+    
