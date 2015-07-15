@@ -1,0 +1,5 @@
+---
+
+- name: Create the app direcotry
+  file: path=/var/furry-robot
+        state=directory

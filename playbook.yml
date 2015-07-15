@@ -10,6 +10,7 @@
     db_password: supersecretpassword
   roles:
   - { role: base, tags: base }
+  - { role: furry-robot, tags: furry-robot }
   - { role: nginx, tags: nginx }
   - { role: uwsgi, tags: uwsgi }
 #  - { role: django }

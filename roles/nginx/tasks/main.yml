@@ -23,6 +23,10 @@
   copy: src=nginx.conf
         dest=/etc/init/
 
+- name: Manage uwsgi_params file
+  copy: src=uwsgi_params
+        dest=/etc/nginx
+
 - name: Create the sites-enabled directory
   file: path=/etc/nginx/sites-enabled
         state=directory
@@ -40,4 +44,4 @@
   service: name=nginx enabled=yes
 
 - name: start the nginx service
-  service: name=nginx state=started pattern=/usr/sbin/nginx 
+  service: name=nginx state=started pattern=/usr/sbin/nginx
